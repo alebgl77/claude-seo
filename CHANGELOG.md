@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- The JSON-LD hook now validates every `application/ld+json` block regardless of
+  attribute order, CSP `nonce`, `id` or `data-*` attributes, tag case, or an
+  unquoted type value; such blocks were previously skipped without validation.
+- The JSON-LD hook no longer reports runtime template expressions (JSX, Vue,
+  Svelte, template literals in component files; PHP and EJS everywhere) as
+  invalid JSON, while a malformed literal in plain HTML is still reported.
+- The JSON-LD hook accepts the schema.org `@context` with a trailing slash, in
+  list form, and in `{"@vocab": ...}` object form.
+
 ## [2.2.5] - 2026-08-25
 
 ### Added
